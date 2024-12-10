@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fetchNews = async () => {
         const newsFeed = document.getElementById('news-feed');
         try {
-            const response = await fetch('https://newsapi.org/v2/everything?q=ecology&apiKey=252fafbc13ed4bb7a8292b6cc3f3a8d1');
+            const response = await fetch('https://newsapi.org/v2/everything?q=ecology&apiKey=68ab614245af4cd8be2df3e804783415');
             const data = await response.json();
             newsFeed.innerHTML = data.articles.slice(0, 6).map(article => `
                 <div class="news-card">
