@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-        const apiKey = '00ded86dab065447e531e0c1b9bc9b1f';
+        const apiKey = '502aa99f2e9fd89a656f67ce11c616b9';
     
         try {
             for (const location of locations) {
