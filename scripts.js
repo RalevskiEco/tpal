@@ -282,20 +282,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch News Articles
     const fetchNews = async () => {
         const newsFeed = document.getElementById('news-feed');
+        const apiKey = '64d49bf68da05d8ed53f62b401d2d6c5'; // Your Mediastack API key
+        const query = 'ecology,nature,environment,sustainability'; // Filter for ecological topics
+        const url = `http://api.mediastack.com/v1/news?access_key=${apiKey}&languages=en&keywords=${encodeURIComponent(query)}&limit=6`;
+
         try {
-            const response = await fetch('https://newsapi.org/v2/everything?q=ecology&apiKey=68ab614245af4cd8be2df3e804783415');
+            const response = await fetch(url);
             const data = await response.json();
-            newsFeed.innerHTML = data.articles.slice(0, 6).map(article => `
+
+            if (data.data && data.data.length > 0) {
+                newsFeed.innerHTML = data.data.map(article => `
                 <div class="news-card">
-                    <h3>${article.title}</h3>
+                    <h3>${article.title || 'No title available'}</h3>
                     <p>${article.description || 'No description available.'}</p>
                     <a href="${article.url}" target="_blank">Read more</a>
                 </div>
             `).join('');
+            } else {
+                newsFeed.innerHTML = '<p class="text-center text-red-600">No news articles found.</p>';
+            }
         } catch (error) {
+            console.error('Error fetching news:', error);
             newsFeed.innerHTML = '<p class="text-center text-red-600">Failed to load news. Try again later.</p>';
         }
     };
+
 
     // Initialize Features
     initMap();
