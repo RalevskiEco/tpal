@@ -11,10 +11,12 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>    
 </head>
 <body class="font-sans antialiased">
-    <!-- Hero Section -->
+
     <section class="hero bg-green-800 text-white text-center py-20">
         <div class="container mx-auto px-4">
-            <h1 class="text-4xl font-bold mb-4">TerraPal: Your Guide to a Cleaner Planet</h1>
+            <h1 class="text-5xl font-extrabold mb-8 text-green-400">
+                TerraPal
+            </h1>
             <p class="text-lg">Explore data, take action, and join the movement to reduce pollution.</p>
             <div class="mt-8">
                 <a href="#calculator" class="bg-white text-green-800 px-6 py-3 rounded-lg shadow-md hover:bg-gray-200">Get Started</a>
@@ -23,23 +25,23 @@
     </section>
 
     <main class="container mx-auto px-4 pt-12">
-        <!-- Eco Footprint Calculator -->
-    <section id="calculator" class="mb-16">
+
+        <section id="calculator" class="mb-16">
             <h2 class="text-3xl font-bold text-center mb-8 text-green-800">Ecological Footprint Calculator</h2>
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="bg-white rounded-lg shadow-lg p-6">
                     <form id="eco-calculator" class="space-y-4">
                         <div>
-                            <label class="block mb-2 text-gray-700">Transportation (miles/week)</label>
-                            <input type="number" id="transportation" class="w-full p-2 border rounded" placeholder="Enter miles">
+                            <label class="block mb-2 text-gray-700">Transportation (km/week)</label>
+                            <input type="number" id="transportation" class="w-full p-2 border rounded" placeholder="Enter Kilometers">
                         </div>
                         <div>
                             <label class="block mb-2 text-gray-700">Energy Usage (kWh/month)</label>
                             <input type="number" id="energy" class="w-full p-2 border rounded" placeholder="Enter kWh">
                         </div>
                         <div>
-                            <label class="block mb-2 text-gray-700">Waste Production (lbs/week)</label>
-                            <input type="number" id="waste" class="w-full p-2 border rounded" placeholder="Enter pounds">
+                            <label class="block mb-2 text-gray-700">Waste Production (kg/week)</label>
+                            <input type="number" id="waste" class="w-full p-2 border rounded" placeholder="Enter Kilograms">
                         </div>
                     </form>
                 </div>
@@ -50,64 +52,57 @@
                     <div class="mt-6">
                         <h4 class="font-semibold mb-2">Suggested Actions:</h4>
                         <ul id="suggested-actions" class="text-left list-disc list-inside text-sm text-gray-700">
-                            <!-- Dynamic suggestions will be added here -->
+
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Live Pollution Map -->
         <section id="pollution-map" class="mb-16">
             <h2 class="text-3xl font-bold text-center mb-8 text-green-800">Live Pollution Map</h2>
             <div id="map-container" class="h-96 rounded-lg overflow-hidden shadow-md"></div>
         </section>
 
-        <!-- Environmental News -->
         <section id="news" class="mb-16">
             <h2 class="text-3xl font-bold text-center mb-8 text-green-800">Environmental News</h2>
             <div id="news-feed" class="grid md:grid-cols-3 gap-6">
-                <!-- News articles will be dynamically added here -->
             </div>
         </section>
 
-        <!-- Educational Resources -->
-        <section id="educational-resources" class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-8 text-green-800">Environmental Education</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h3 class="text-xl font-semibold mb-4">Air Pollution</h3>
-                    <p class="text-gray-600 mb-4">Learn about the sources, impacts, and solutions to air pollution.</p>
-                    <a href="#" class="text-green-600 hover:underline">Explore More</a>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h3 class="text-xl font-semibold mb-4">Water Contamination</h3>
-                    <p class="text-gray-600 mb-4">Understand the effects of water pollution on ecosystems and human health.</p>
-                    <a href="#" class="text-green-600 hover:underline">Learn Now</a>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h3 class="text-xl font-semibold mb-4">Sustainable Practices</h3>
-                    <p class="text-gray-600 mb-4">Discover practical ways to reduce your environmental footprint.</p>
-                    <a href="#" class="text-green-600 hover:underline">Get Tips</a>
-                </div>
-            </div>
-        </section>
+<section id="educational-resources" class="mb-16">
+    <h2 class="text-3xl font-bold text-center mb-8 text-green-800">Environmental Education</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold mb-4">Air Pollution</h3>
+            <p class="text-gray-600 mb-4">Learn about the sources, impacts, and solutions to air pollution.</p>
+            <a href="airPollution.html" class="text-green-600 hover:underline">Explore More</a>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold mb-4">Water Contamination</h3>
+            <p class="text-gray-600 mb-4">Understand the effects of water pollution on ecosystems and human health.</p>
+            <a href="waterContamination.html" class="text-green-600 hover:underline">Learn Now</a>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold mb-4">Sustainable Practices</h3>
+            <p class="text-gray-600 mb-4">Discover practical ways to reduce your environmental footprint.</p>
+            <a href="sustainablePractices.html" class="text-green-600 hover:underline">Get Tips</a>
+        </div>
+    </div>
+</section>
     </main>
 
     <footer class="bg-green-900 text-white py-12 mt-16">
         <div class="container mx-auto px-6 text-center">
-            <!-- Large EcoPulse Title -->
             <h1 class="text-5xl font-extrabold mb-8 text-green-400">
                 TerraPal
             </h1>
     
-            <!-- About Section -->
             <div class="mb-8">
                 <h4 class="text-xl font-semibold mb-4">About TerraPal</h4>
                 <p class="text-gray-300">TerraPal empowers individuals to understand and reduce their environmental impact through data-driven insights. We are committed to helping the planet, one action at a time.</p>
             </div>
     
-            <!-- Contact & Credits Section -->
             <div>
                 <h4 class="text-xl font-semibold mb-4">Contact & Credits</h4>
                 <p class="text-gray-300">Email: <a href="mailto:ralevski@yahoo.com" class="hover:text-green-300">ralevski@yahoo.com</a></p>
@@ -120,11 +115,8 @@
             </div>
         </div>
     </footer>
-    
-    
-    
-    
 
     <script src="scripts.js"></script>
+    
 </body>
 </html>
