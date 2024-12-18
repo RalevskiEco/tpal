@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Eco Footprint Calculator Elements
     const transportationInput = document.getElementById('transportation');
     const energyInput = document.getElementById('energy');
     const wasteInput = document.getElementById('waste');
@@ -7,9 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const impactFeedbackElement = document.getElementById('impact-feedback');
     const suggestedActionsElement = document.getElementById('suggested-actions');
 
-    // Calculation and Feedback Functions
     const calculateEcoFootprint = (transportation, energy, waste) => {
-        // More sophisticated calculation with weighted factors
         const transportationFactor = Math.min(transportation * 0.4, 100);
         const energyFactor = Math.min(energy * 0.35, 100);
         const wasteFactor = Math.min(waste * 0.25, 100);
@@ -44,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
     };
 
-    // Update Calculator Functionality
     const updateCalculator = () => {
         const transportation = parseFloat(transportationInput.value) || 0;
         const energy = parseFloat(energyInput.value) || 0;
@@ -61,17 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
             .join('');
     };
 
-    // Event Listeners
     [transportationInput, energyInput, wasteInput].forEach(input => {
         input.addEventListener('input', updateCalculator);
     });
 
-    // Update current year
     document.getElementById('current-year').textContent = new Date().getFullYear();
     document.addEventListener('DOMContentLoaded', () => {
-        // Existing code...
     
-        // Impact Simulation Functionality
         const simulateImpact = () => {
             const actionValue = parseInt(document.getElementById('action-select').value);
             if (actionValue > 0) {
@@ -91,67 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
         document.getElementById('simulate-button').addEventListener('click', simulateImpact);
     
-        // Existing code...
     });
-    // Chart.js Visualizations
-    const createAirQualityChart = () => {
-        const ctx = document.getElementById('airQualityChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-                datasets: [{
-                    label: 'Air Quality Index',
-                    data: [65, 59, 80, 81, 56, 55],
-                    borderColor: 'rgb(75, 192, 192)',
-                    tension: 0.1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Monthly Air Quality Trends'
-                    }
-                }
-            }
-        });
-    };
-
-    const createWaterPollutionChart = () => {
-        const ctx = document.getElementById('waterPollutionChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Region A', 'Region B', 'Region C', 'Region D', 'Region E'],
-                datasets: [{
-                    label: 'Water Pollution Levels',
-                    data: [12, 19, 3, 5, 2],
-                    backgroundColor: 'rgba(54, 162, 235, 0.6)'
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Regional Water Pollution Comparison'
-                    }
-                }
-            }
-        });
-    };
-
-    // Initialize Charts
-    createAirQualityChart();
-    createWaterPollutionChart();
-
-    // Initial calculator update
+    
     updateCalculator();
 });
 document.addEventListener('DOMContentLoaded', () => {
-    // Eco Footprint Calculator Elements
     const transportationInput = document.getElementById('transportation');
     const energyInput = document.getElementById('energy');
     const wasteInput = document.getElementById('waste');
@@ -195,49 +131,45 @@ document.addEventListener('DOMContentLoaded', () => {
         input.addEventListener('input', updateCalculator);
     });
 
-    // Initialize Pollution Map (placeholder)
     const initMap = async () => {
         const mapContainer = document.getElementById('map-container');
     
-        // Initialize the map using Leaflet.js
-        const map = L.map(mapContainer).setView([20, 0], 2); // Center map at lat: 20, lon: 0
-    
-        // Add a tile layer (map base)
+        const map = L.map(mapContainer).setView([20, 0], 2); 
+
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 18,
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
     
-        // Define coordinates for fetching pollution data (example: multiple cities)
         const locations = [
-            { lat: 41.9981, lon: 21.4254, name: 'Skopje' },    // North Macedonia
-            { lat: 46.0569, lon: 14.5058, name: 'Ljubljana' }, // Slovenia
-            { lat: 41.3275, lon: 19.8189, name: 'Tirana' },    // Albania
-            { lat: 42.6629, lon: 21.1655, name: 'Pristina' },  // Kosovo
-            { lat: 48.8566, lon: 2.3522, name: 'Paris' },      // France
-            { lat: 52.5200, lon: 13.4050, name: 'Berlin' },    // Germany
-            { lat: 41.9028, lon: 12.4964, name: 'Rome' },      // Italy
-            { lat: 40.4168, lon: -3.7038, name: 'Madrid' },    // Spain
-            { lat: 50.8503, lon: 4.3517, name: 'Brussels' },   // Belgium
-            { lat: 59.9139, lon: 10.7522, name: 'Oslo' },      // Norway
-            { lat: 48.2082, lon: 16.3738, name: 'Vienna' },    // Austria
-            { lat: 60.1692, lon: 24.9402, name: 'Helsinki' },  // Finland
-            { lat: 55.7558, lon: 37.6173, name: 'Moscow' },    // Russia
-            { lat: 52.3667, lon: 9.7167, name: 'Hamburg' },    // Germany
-            { lat: 51.1657, lon: 10.4515, name: 'Berlin' },    // Germany
-            { lat: 53.3498, lon: -6.2603, name: 'Dublin' },    // Ireland
-            { lat: 52.3676, lon: 4.9041, name: 'Amsterdam' },  // Netherlands
-            { lat: 43.6349, lon: 1.4445, name: 'Toulouse' },   // France
-            { lat: 60.1692, lon: 24.9402, name: 'Helsinki' },  // Finland
-            { lat: 51.5074, lon: -0.1278, name: 'London' },    // United Kingdom
-            { lat: 41.9028, lon: 12.4964, name: 'Rome' },      // Italy
-            { lat: 52.2298, lon: 21.0118, name: 'Warsaw' },    // Poland
-            { lat: 55.6761, lon: 12.5683, name: 'Copenhagen' },// Denmark
-            { lat: 48.1351, lon: 11.5820, name: 'Munich' },    // Germany
-            { lat: 43.6349, lon: 1.4445, name: 'Toulouse' },   // France
-            { lat: 59.9139, lon: 10.7522, name: 'Oslo' },      // Norway
-            { lat: 48.2082, lon: 16.3738, name: 'Vienna' },    // Austria
-            { lat: 55.7558, lon: 37.6173, name: 'Moscow' }     // Russia
+            { lat: 41.9981, lon: 21.4254, name: 'Skopje' },   
+            { lat: 46.0569, lon: 14.5058, name: 'Ljubljana' }, 
+            { lat: 41.3275, lon: 19.8189, name: 'Tirana' },    
+            { lat: 42.6629, lon: 21.1655, name: 'Pristina' },  
+            { lat: 48.8566, lon: 2.3522, name: 'Paris' },     
+            { lat: 52.5200, lon: 13.4050, name: 'Berlin' },    
+            { lat: 41.9028, lon: 12.4964, name: 'Rome' },      
+            { lat: 40.4168, lon: -3.7038, name: 'Madrid' },   
+            { lat: 50.8503, lon: 4.3517, name: 'Brussels' },   
+            { lat: 59.9139, lon: 10.7522, name: 'Oslo' },     
+            { lat: 48.2082, lon: 16.3738, name: 'Vienna' },    
+            { lat: 60.1692, lon: 24.9402, name: 'Helsinki' },  
+            { lat: 55.7558, lon: 37.6173, name: 'Moscow' },    
+            { lat: 52.3667, lon: 9.7167, name: 'Hamburg' },    
+            { lat: 51.1657, lon: 10.4515, name: 'Berlin' },    
+            { lat: 53.3498, lon: -6.2603, name: 'Dublin' },    
+            { lat: 52.3676, lon: 4.9041, name: 'Amsterdam' },  
+            { lat: 43.6349, lon: 1.4445, name: 'Toulouse' },  
+            { lat: 60.1692, lon: 24.9402, name: 'Helsinki' },  
+            { lat: 51.5074, lon: -0.1278, name: 'London' },    
+            { lat: 41.9028, lon: 12.4964, name: 'Rome' },      
+            { lat: 52.2298, lon: 21.0118, name: 'Warsaw' },    
+            { lat: 55.6761, lon: 12.5683, name: 'Copenhagen'} ,
+            { lat: 48.1351, lon: 11.5820, name: 'Munich' },    
+            { lat: 43.6349, lon: 1.4445, name: 'Toulouse' },   
+            { lat: 59.9139, lon: 10.7522, name: 'Oslo' },      
+            { lat: 48.2082, lon: 16.3738, name: 'Vienna' },    
+            { lat: 55.7558, lon: 37.6173, name: 'Moscow' }     
         ];
 
 
@@ -251,10 +183,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const data = await response.json();
     
                 if (data && data.list && data.list.length > 0) {
-                    const aqi = data.list[0].main.aqi; // Air Quality Index
+                    const aqi = data.list[0].main.aqi; 
                     const aqiDescription = getAQIDescription(aqi);
     
-                    // Add marker to the map
                     L.marker([location.lat, location.lon]).addTo(map)
                         .bindPopup(`<strong>${location.name}</strong><br>Air Quality Index: ${aqi} (${aqiDescription})`)
                         .openPopup();
@@ -266,7 +197,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
-    // Helper function to interpret AQI levels
     const getAQIDescription = (aqi) => {
         switch (aqi) {
             case 1: return 'Good';
@@ -279,11 +209,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
 
-    // Fetch News Articles
     const fetchNews = async () => {
         const newsFeed = document.getElementById('news-feed');
-        const apiKey = '64d49bf68da05d8ed53f62b401d2d6c5'; // Your Mediastack API key
-        const query = 'ecology,nature,environment,sustainability'; // Filter for ecological topics
+        const apiKey = '5e6788895d0d7bbb83616a33bb2b8246'; 
+        const query = 'ecology,nature,environment,sustainability'; 
         const url = `https://api.mediastack.com/v1/news?access_key=${apiKey}&languages=en&keywords=${encodeURIComponent(query)}&limit=6`;
 
         try {
@@ -308,7 +237,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    // Initialize Features
     initMap();
     fetchNews();
 });
