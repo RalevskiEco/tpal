@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const fetchNews = async () => {
         const newsFeed = document.getElementById('news-feed');
-        const apiKey = '5e6788895d0d7bbb83616a33bb2b8246'; 
+        const apiKey = 'bf729c8658cbff8ced30e6fb2e754c9d'; 
         const query = 'ecology,nature,environment,sustainability'; 
         const url = `https://api.mediastack.com/v1/news?access_key=${apiKey}&languages=en&keywords=${encodeURIComponent(query)}&limit=6`;
 
